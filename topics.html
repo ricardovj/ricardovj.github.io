@@ -21,12 +21,12 @@
                 server_password: "b.tsr5bObqhUrN.4i9SbX0lzCRFy5MB",
                 labels: {
                     "Topic": {
-                        caption: "name",
+                        caption: "name"
                     }
                 },
                 relationships: {
                     "SUBTOPIC_OF": {
-                        caption: false
+                        caption: true
                     }
                 },
                 initial_cypher: "MATCH (root:GraphTopic {isRoot: true}) MATCH (st:GraphTopic) WHERE (st)-[:SUBTOPIC_OF]->(root) return root, st"
