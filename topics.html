@@ -30,6 +30,8 @@
                         thikness: 3
                     }
                 },
+                arrows: true,
+                hierarchical_layout: true
                 initial_cypher: "MATCH (root:GraphTopic {isRoot: true}) MATCH (st:GraphTopic) WHERE (st)-[:SUBTOPIC_OF]->(root) return root, st"
             }
 
