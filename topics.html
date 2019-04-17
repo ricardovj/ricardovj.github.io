@@ -26,7 +26,8 @@
                 },
                 relationships: {
                     "SUBTOPIC_OF": {
-                        caption: true
+                        caption: true,
+                        thikness: 3
                     }
                 },
                 initial_cypher: "MATCH (root:GraphTopic {isRoot: true}) MATCH (st:GraphTopic) WHERE (st)-[:SUBTOPIC_OF]->(root) return root, st"
