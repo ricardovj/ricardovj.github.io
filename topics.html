@@ -22,7 +22,7 @@
                 labels: {
                     "GraphTopic": {
                         caption: "name",
-                        size: 200
+                        size: 20
                     }
                 },
                 relationships: {
@@ -32,7 +32,7 @@
                     }
                 },
                 arrows: true,
-                hierarchical_layout: true,
+                hierarchical_layout: false,
                 initial_cypher: "MATCH (st:GraphTopic)-[r:SUBTOPIC_OF]->(root:GraphTopic {isRoot: true}) return root, st, r"
             }
 
