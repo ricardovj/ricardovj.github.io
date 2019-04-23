@@ -21,19 +21,18 @@
                 server_password: "b.tsr5bObqhUrN.4i9SbX0lzCRFy5MB",
                 labels: {
                     "GraphTopic": {
-                        caption: "name",
-                        size: 20
+                        caption: "name"
                     }
                 },
                 relationships: {
                     "SUBTOPIC_OF": {
-                        caption: false,
-                        thikness: 1
+                        caption: false
                     }
                 },
                 arrows: true,
-                hierarchical_layout: false,
-                initial_cypher: "MATCH (st:GraphTopic)-[r:SUBTOPIC_OF]->(root:GraphTopic {isRoot: true}) return root, st, r"
+                hierarchical_layout: true,
+                hierarchical_sort_method: "directed",
+                initial_cypher: "MATCH (st:GraphTopic)-[r:SUBTOPIC_OF]->(root:GraphTopic {isRoot: true}) WHERE st.id <> 251 AND root.id <> 251 return root, st, r"
             }
 
             var viz = new NeoVis.default(config);
