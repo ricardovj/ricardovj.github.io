@@ -28,12 +28,13 @@
                 },
                 relationships: {
                     "SUBTOPIC_OF": {
-                        caption: false
+                        caption: false,
+                        thickness: 0
                     }
                 },
                 arrows: true,
                 hierarchical_layout: true,
-                hierarchical_sort_method: "directed",
+                hierarchical_sort_method: "hubsize",
                 initial_cypher: "MATCH (st:GraphTopic)-[r:SUBTOPIC_OF]->(root:GraphTopic {isRoot: true}) WHERE st.id <> 251 AND root.id <> 251 return root, st, r"
             }
 
