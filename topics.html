@@ -38,7 +38,7 @@
                 initial_cypher: "MATCH (st:GraphTopic)-[r:SUBTOPIC_OF]->(root:GraphTopic {isRoot: true}) WHERE st.id <> 251 AND root.id <> 251 return root, st, r"
             }
             
-            Neovis.stabilize();
+            NeoVis.stabilize();
             var viz = new NeoVis.default(config);
             viz.render();
         }
