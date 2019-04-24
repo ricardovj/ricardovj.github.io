@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Popoto example</title>
+    <link rel="stylesheet" href="dist/popoto.min.css" />
+  </head>
+
+  <body class="ppt-body">
+    <section class="ppt-section-main">
+      <div class="ppt-container-graph">
+        <nav id="popoto-taxonomy" class="ppt-taxo-nav">
+          <!-- Label/taxonomy filter will be generated here -->
+        </nav>
+        <div id="popoto-graph" class="ppt-div-graph">
+          <!-- Graph will be generated here-->
+        </div>
+      </div>
+
+      <div id="popoto-query" class="ppt-container-query">
+        <!-- Query viewer will be generated here -->
+      </div>
+
+      <div id="popoto-cypher" class="ppt-container-cypher">
+        <!-- Cypher query viewer will be generated here -->
+      </div>
+
+      <div class="ppt-section-header">
+        <!-- The total results count is updated with a listener defined below -->
+        RESULTS <span id="result-total-count" class="ppt-count"></span>
+      </div>
+
+      <div id="popoto-results" class="ppt-container-results">
+        <!-- Results will be generated here -->
+      </div>
+    </section>
+
+    <!-- Required scripts -->
+
+    <script src="https://unpkg.com/jquery" charset="utf-8"></script>
+    <script src="https://unpkg.com/d3" charset="utf-8"></script>
+    <script src="https://unpkg.com/popoto/dist/popoto.js"></script>
+    <script>
+      popoto.rest.CYPHER_URL =
+        'https://app104541856-EG5kCf:b.tsr5bObqhUrN.4i9SbX0lzCRFy5MB@hobby-eoecnogldadkgbkeeendgbcl.dbs.graphenedb.com:24780'
+
+      popoto.provider.node.Provider = {
+        GraphTopic: {
+          returnAttributes: ['name'],
+          constraintAttribute: 'name'
+        }
+      }
+
+      popoto.result.onTotalResultCount(function(count) {
+        document.getElementById('result-total-count').innerHTML =
+          '(' + count + ')'
+      })
+
+      popoto.start('GraphTopic')
+    </script>
+  </body>
+</html>
