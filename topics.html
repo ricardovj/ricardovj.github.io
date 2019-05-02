@@ -36,7 +36,7 @@
         arrows: true,
         hierarchical_layout: true,
         hierarchical_sort_method: 'hubsize',
-        initial_cypher: 'MATCH (st:GraphTopic) return st'
+        initial_cypher: 'MATCH (t) OPTIONAL MATCH (t)-[r]-() RETURN t, r'
       }
 
       var viz = new NeoVis.default(config)
