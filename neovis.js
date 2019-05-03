@@ -36595,34 +36595,39 @@ class NeoVis {
                         arrows: {
                             to: {enabled: self._config.arrows || false } // FIXME: handle default value
                         },
-                        length: 200
-                    },
-                    layout: {
-                        improvedLayout: false,
-                        hierarchical: {
-                            enabled: self._config.hierarchical || false,
-                            sortMethod: self._config.hierarchical_sort_method || "hubsize"
-
+                        length: 200,
+                        width: 0.5,
+                        scaling: {
+                          min: 0.1,
+                          max: 1.0
                         }
                     },
-                    physics: { // TODO: adaptive physics settings based on size of graph rendered
-                        // enabled: true,
-                        // timestep: 0.5,
-                        // stabilization: {
-                        //     iterations: 10
-                        // }
-                        
-                            adaptiveTimestep: true,
-                            // barnesHut: {
-                            //     gravitationalConstant: -8000,
-                            //     springConstant: 0.04,
-                            //     springLength: 95
-                            // },
-                            stabilization: {
-                                iterations: 200,
-                                fit: true
-                            }
-                        
+                    layout: {
+                        improvedLayout: true,
+                        hierarchical: {
+                            enabled: true,
+                            sortMethod: "hubsize",
+                            treeSpacing: 200,
+                            nodeSpacing: 50,
+                            levelSeparation: 200,
+                            blockShifting: true,
+                            edgeMinimization: false
+                        }
+                    },
+                    physics: {
+                      enabled: false,
+                      adaptiveTimestep: true,
+                      barnesHut: {
+                          gravitationalConstant: -10000,
+                          springConstant: 0.04,
+                          springLength: 95,
+                          avoidOverlap: 1
+                      },
+                      stabilization: {
+                          iterations: 200,
+                          fit: false
+                      },
+                      solver: "hierarchicalRepulsion"
                     }
                   };
 
