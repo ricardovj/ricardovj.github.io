@@ -36618,7 +36618,7 @@ class NeoVis {
                       enabled: false,
                       adaptiveTimestep: true,
                       barnesHut: {
-                          gravitationalConstant: -10000,
+                          gravitationalConstant: -11000,
                           springConstant: 0.04,
                           springLength: 95,
                           avoidOverlap: 1
