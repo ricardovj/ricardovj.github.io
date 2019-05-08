@@ -36595,17 +36595,17 @@ class NeoVis {
                         arrows: {
                             to: {enabled: self._config.arrows || false } // FIXME: handle default value
                         },
-                        length: 200,
+                        length: 100,
                         width: 0.5,
                         scaling: {
-                          min: 0.1,
-                          max: 1.0
+                          min: 0.5,
+                          max: 2.0
                         }
                     },
                     layout: {
                         improvedLayout: true,
                         hierarchical: {
-                            enabled: true,
+                            enabled: self._config.hierarchical || false,
                             sortMethod: "hubsize",
                             treeSpacing: 200,
                             nodeSpacing: 50,
@@ -36615,19 +36615,19 @@ class NeoVis {
                         }
                     },
                     physics: {
-                      enabled: false,
+                      enabled: self._config.physics,
                       adaptiveTimestep: true,
                       barnesHut: {
-                          gravitationalConstant: -11000,
+                          gravitationalConstant: -1000,
                           springConstant: 0.04,
                           springLength: 95,
-                          avoidOverlap: 1
+                          avoidOverlap: 0
                       },
                       stabilization: {
                           iterations: 200,
                           fit: false
                       },
-                      solver: "hierarchicalRepulsion"
+                      solver: self._config.solver || "hierarchicalRepulsion"
                     }
                   };
 
