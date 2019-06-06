@@ -36617,14 +36617,19 @@ class NeoVis {
                     physics: {
                       enabled: self._config.physics,
                       adaptiveTimestep: true,
+                      timestep: 0.35,
+                      maxVelocity: 146,
                       barnesHut: {
-                          gravitationalConstant: -1000,
-                          springConstant: 0.04,
-                          springLength: 95,
-                          avoidOverlap: 0
+                        gravitationalConstant: -2000,
+                        centralGravity: 0.3,
+                        springLength: 95,
+                        springConstant: 0.04,
+                        damping: 0.09,
+                        avoidOverlap: 0.2
                       },
                       stabilization: {
-                          iterations: 200,
+                          enabled: true,
+                          iterations: 2000,
                           fit: false
                       },
                       solver: self._config.solver || "hierarchicalRepulsion"
