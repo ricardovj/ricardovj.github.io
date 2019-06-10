@@ -36595,7 +36595,7 @@ class NeoVis {
                         arrows: {
                             to: {enabled: self._config.arrows || false } // FIXME: handle default value
                         },
-                        length: 100,
+                        length: 190,
                         width: 0.5,
                         scaling: {
                           min: 0.5,
@@ -36622,10 +36622,10 @@ class NeoVis {
                       barnesHut: {
                         gravitationalConstant: -2000,
                         centralGravity: 0.3,
-                        springLength: 95,
+                        springLength: 75,
                         springConstant: 0.04,
                         damping: 0.09,
-                        avoidOverlap: 0.2
+                        avoidOverlap: 0.6
                       },
                       stabilization: {
                           enabled: true,

@@ -53,10 +53,11 @@
         // 'MATCH (t) WHERE t.id <> 251 OPTIONAL MATCH (t)-[r]-(s) RETURN t, r, s'
 
         initial_cypher:
-          'MATCH (t)-[r:SUBTOPIC_OF*0..]->(root)' +
+          'MATCH (child)-[r:SUBTOPIC_OF*0..]->(root)' +
           `WHERE root.name =~ "(?i)${searchString}.*"` +
-          'OPTIONAL MATCH (root)-[cr]->(p)' +
-          'RETURN root, p, r, cr, COLLECT(t) AS tree'
+          'OPTIONAL MATCH (root)-[rootParentRelationship]->(rootParent)' +
+          'OPTIONAL MATCH (child)-[childParentRelationship]->(childParent)' +
+          'RETURN root, rootParent, r, childParentRelationship, rootParentRelationship, childParent, COLLECT(child) AS tree'
       }
 
       var viz = new NeoVis.default(config)
@@ -65,12 +66,7 @@
   </script>
   <body onload="draw()">
     <span>Topic Name:</span>
-    <input
-      id="cypher"
-      type="text"
-      value="engineering"
-      oninput="drawDebounced()"
-    />
+    <input id="cypher" type="text" value="math" oninput="drawDebounced()" />
     <div id="viz"></div>
   </body>
 </html>
