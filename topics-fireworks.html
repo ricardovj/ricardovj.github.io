@@ -53,7 +53,7 @@
         // 'MATCH (t) WHERE t.id <> 251 OPTIONAL MATCH (t)-[r]-(s) RETURN t, r, s'
         initial_cypher:
           'MATCH (child)-[r:SUBTOPIC_OF*0..]->(root)' +
-          `WHERE root.name =~ "(?i)${searchString}.*"` +
+          `WHERE root.name =~ "(?i).*${searchString}.*"` +
           'OPTIONAL MATCH (root)-[rootParentRelationship]->(rootParent)' +
           'OPTIONAL MATCH (child)-[childParentRelationship]->(childParent)' +
           'RETURN root, rootParent, r, childParentRelationship, rootParentRelationship, childParent, COLLECT(child) AS tree'

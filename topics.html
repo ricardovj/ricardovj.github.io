@@ -56,7 +56,7 @@
           //   ' MATCH (ps)<-[r:SUBTOPIC_OF]-(c)' +
           //   ' RETURN p, r, c'
           'MATCH (child)-[r:SUBTOPIC_OF*0..]->(root)' +
-          `WHERE root.name =~ "(?i)${searchString}.*"` +
+          `WHERE root.name =~ "(?i).*${searchString}.*"` +
           'OPTIONAL MATCH (root)-[rootParentRelationship]->(rootParent)' +
           'OPTIONAL MATCH (child)-[childParentRelationship]->(childParent)' +
           'RETURN root, rootParent, r, childParentRelationship, rootParentRelationship, childParent, COLLECT(child) AS tree'

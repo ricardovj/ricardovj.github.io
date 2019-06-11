@@ -36580,17 +36580,16 @@ class NeoVis {
                   session.close();
                   let options = {
                     nodes: {
-                       font: {
-                         size: 22,
-                       },
                         shape: 'dot',
                         font: {
-                            size: 26,
+                            size: 40,
                             strokeWidth: 7
                         },
                         scaling: {
                             label: {
-                                enabled: true
+                                enabled: true,
+                                min: 20,
+                                max: 32,
                             }
                         }
                     },
@@ -36630,7 +36629,7 @@ class NeoVis {
                       // timestep: 0.35,
                       // maxVelocity: 146,
                       barnesHut: {
-                        gravitationalConstant: -3500,
+                        gravitationalConstant: -5000,
                         centralGravity: 0.1,
                         springLength: 95,
                         springConstant: 0.01,
