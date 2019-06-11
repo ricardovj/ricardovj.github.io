@@ -36580,6 +36580,9 @@ class NeoVis {
                   session.close();
                   let options = {
                     nodes: {
+                       font: {
+                         size: 22,
+                       },
                         shape: 'dot',
                         font: {
                             size: 26,
@@ -36595,11 +36598,18 @@ class NeoVis {
                         arrows: {
                             to: {enabled: self._config.arrows || false } // FIXME: handle default value
                         },
-                        length: 190,
+                        length: 100,
                         width: 0.5,
                         scaling: {
                           min: 0.5,
                           max: 2.0
+                        },
+                        selectionWidth: 4,
+                        chosen: {
+                          edge: true,
+                          // function (values, id, selected, hovering) {
+                          //   values.edges = true;
+                          // },
                         }
                     },
                     layout: {
@@ -36617,15 +36627,15 @@ class NeoVis {
                     physics: {
                       enabled: self._config.physics,
                       adaptiveTimestep: true,
-                      timestep: 0.35,
-                      maxVelocity: 146,
+                      // timestep: 0.35,
+                      // maxVelocity: 146,
                       barnesHut: {
-                        gravitationalConstant: -2000,
-                        centralGravity: 0.3,
-                        springLength: 75,
-                        springConstant: 0.04,
+                        gravitationalConstant: -3500,
+                        centralGravity: 0.1,
+                        springLength: 95,
+                        springConstant: 0.01,
                         damping: 0.09,
-                        avoidOverlap: 0.6
+                        avoidOverlap: 0.9
                       },
                       stabilization: {
                           enabled: true,

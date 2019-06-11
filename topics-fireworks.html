@@ -51,7 +51,6 @@
         // initial_cypher:
         //   'MATCH (t) WHERE t.name =~ "(?i)law.*"  OPTIONAL MATCH (t)-[r]-(s) RETURN t, r, s'
         // 'MATCH (t) WHERE t.id <> 251 OPTIONAL MATCH (t)-[r]-(s) RETURN t, r, s'
-
         initial_cypher:
           'MATCH (child)-[r:SUBTOPIC_OF*0..]->(root)' +
           `WHERE root.name =~ "(?i)${searchString}.*"` +
