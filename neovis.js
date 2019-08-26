@@ -36616,9 +36616,9 @@ class NeoVis {
                         hierarchical: {
                             enabled: self._config.hierarchical || false,
                             sortMethod: "hubsize",
-                            treeSpacing: 200,
-                            nodeSpacing: 50,
-                            levelSeparation: 200,
+                            treeSpacing: 400,
+                            nodeSpacing: 80,
+                            levelSeparation: 400,
                             blockShifting: true,
                             edgeMinimization: false
                         }
@@ -36631,10 +36631,10 @@ class NeoVis {
                       barnesHut: {
                         gravitationalConstant: -5000,
                         centralGravity: 0.1,
-                        springLength: 95,
+                        springLength: 45,
                         springConstant: 0.01,
                         damping: 0.09,
-                        avoidOverlap: 0.9
+                        avoidOverlap: 1
                       },
                       stabilization: {
                           enabled: true,
