@@ -32,18 +32,18 @@
         container_id: 'viz',
         server_url: 'bolt://db-5zv74o2oq73ei9v8korh.graphenedb.com:24787',
         server_user: 'app73707340-400976468474343',
-        server_password: 'b.ICrskBGddFD2.sVIUmyv6foRHm7LB',
+        server_password: 'b.4AHDs4QvghDR.BTmdH7UJ10acWnOj',
         labels: {
           GraphTopic: {
             caption: 'name',
             size: 'size',
-            community: 'community'
-          }
+            community: 'community',
+          },
         },
         relationships: {
           SUBTOPIC_OF: {
-            caption: false
-          }
+            caption: false,
+          },
         },
         arrows: true,
         hierarchical: true,
@@ -52,7 +52,7 @@
            WHERE root.name =~ "(?i).*${searchString}.*"
            OPTIONAL MATCH (root)-[rootParentRelationship]->(rootParent)
            OPTIONAL MATCH (child)-[childParentRelationship]->(childParent)
-           RETURN root, rootParent, r, childParentRelationship, rootParentRelationship, childParent, COLLECT(child) AS tree`
+           RETURN root, rootParent, r, childParentRelationship, rootParentRelationship, childParent, COLLECT(child) AS tree`,
       }
 
       var viz = new NeoVis.default(config)
