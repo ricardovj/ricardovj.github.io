@@ -12,7 +12,8 @@
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
       crossorigin="anonymous"
     ></script>
-    <script src="neovis.js"></script>
+    <!-- <script src="neovis1.5.js"></script> -->
+    <script src="https://cdn.neo4jlabs.com/neovis.js/v1.5.0/neovis.js"></script>
   </head>
   <script>
     var timeout = null
@@ -28,20 +29,21 @@
 
       var config = {
         encrypted: 'ENCRYPTION_ON',
-        trust: 'TRUST_CUSTOM_CA_SIGNED_CERTIFICATES',
+        trust: 'TRUST_SYSTEM_CA_SIGNED_CERTIFICATES',
         container_id: 'viz',
-        server_url: 'bolt://db-5zv74o2oq73ei9v8korh.graphenedb.com:24787',
-        server_user: 'app73707340-400976468474343',
-        server_password: 'b.4AHDs4QvghDR.BTmdH7UJ10acWnOj',
+        server_url: 'bolt://db-ermfugwkzw2rpn0hsdm6.graphenedb.com:24786',
+        server_user: 'director',
+        server_password: 'b.PN68UMXaJDy4.ZSIpncY7KObYohIj',
         labels: {
           GraphTopic: {
             caption: 'name',
-            size: 'size',
+            size: 'points',
             community: 'community',
           },
         },
         relationships: {
           SUBTOPIC_OF: {
+            thickness: "weight",
             caption: false,
           },
         },
